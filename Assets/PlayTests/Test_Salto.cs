@@ -30,6 +30,13 @@ public class Test_Salto : MonoBehaviour
         ground.layer = LayerMask.NameToLayer("Ground");
         player.groundMask = LayerMask.GetMask("Ground");
         player.slimeMask = LayerMask.GetMask("Slime");
+       
+        player.listaVelocidadesVerticales = new float[10]; 
+        player.alturaInicialYFinal = new Vector2(0, 0);    
+        player.HP = player.maxHP = 100;                    
+        player.alturaSegura = 1;                           
+        player.umbralCaida = 0.2f;
+        player.tiempoActualizacion = 0.1f;
     }
     [TearDown]
     public void Teardown()

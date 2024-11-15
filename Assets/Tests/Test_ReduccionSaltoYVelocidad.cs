@@ -2,7 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Reflection;
 
-public class PlayerSlimeTests : MonoBehaviour
+public class Test_ReduccionSaltoYVelocidad : MonoBehaviour
 {
     private GameObject player;
     private RealentizacionSlime playerSlime;

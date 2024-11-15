@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-public class FuncionamientoPistolaTests : MonoBehaviour
+public class Test_DispararYRecoger : MonoBehaviour
 {
     private FuncionamientoPistola pistola;
     private GameObject bulletPrefab;
@@ -96,11 +96,39 @@ public class FuncionamientoPistolaTests : MonoBehaviour
     }
 
     [Test]
-    public void TestRetornoDelSlime()
+    public void TestRetornoDelSlimeS()
     {
         GlobalVariables.cantSlimes = 1;
         var slime = new GameObject();
         slime.tag = "SlimeS";
+        slime.AddComponent<SlimePegado>();
+        pistola.testReturnSlime = true;
+        pistola.RetornarSlime();
+
+        Assert.IsFalse(slime.activeSelf, "Se desactivo el slime");
+        Assert.AreEqual(0, GlobalVariables.cantSlimes, "Se incremento correctamente el contador de slimes");
+    }
+
+    [Test]
+    public void TestRetornoDelSlimeT()
+    {
+        GlobalVariables.cantSlimes = 1;
+        var slime = new GameObject();
+        slime.tag = "SlimeT";
+        slime.AddComponent<SlimePegado>();
+        pistola.testReturnSlime = true;
+        pistola.RetornarSlime();
+
+        Assert.IsFalse(slime.activeSelf, "Se desactivo el slime");
+        Assert.AreEqual(0, GlobalVariables.cantSlimes, "Se incremento correctamente el contador de slimes");
+    }
+
+    [Test]
+    public void TestRetornoDelSlimeP()
+    {
+        GlobalVariables.cantSlimes = 1;
+        var slime = new GameObject();
+        slime.tag = "SlimeP";
         slime.AddComponent<SlimePegado>();
         pistola.testReturnSlime = true;
         pistola.RetornarSlime();

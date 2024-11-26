@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pausa : MonoBehaviour
 {
     public GameObject panelPausa; // panel de pausa
+    public GameObject camara; // cámara del jugador
     public static bool pausado = false; // variable para saber si el juego está pausado
     void Start()
     {
@@ -25,10 +26,12 @@ public class Pausa : MonoBehaviour
         Time.timeScale = 0f; // pauso el tiempo
         panelPausa.SetActive(true); // activo el panel de pausa
         pausado = true; // cambio la variable de pausa a verdadero
+        Cursor.lockState = CursorLockMode.None;
     }
     public void Reanudar(){
         Time.timeScale = 1f; // reanudo el tiempo
         panelPausa.SetActive(false); // desactivo el panel de pausa
         pausado = false; // cambio la variable de pausa a falso
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
